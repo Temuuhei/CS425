@@ -4,9 +4,9 @@
 "use strict";
 
 // TODO: use ES6 class syntax
-function Patient(patientId, patientIdNumber, 
+function Patient(patientIdNumber, 
                 fullName, emailAddress, contactPhoneNumber, dateOfBirth, ddlDepartment, isAnOutPatient) {
-    this.patientId = patientId;
+    this.patientId = null;
     this.patientIdNumber = patientIdNumber;
     this.fullName = fullName;
     this.emailAddress = emailAddress;
