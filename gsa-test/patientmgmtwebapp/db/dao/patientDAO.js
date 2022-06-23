@@ -33,7 +33,7 @@ const patientDAO = (function() {
     };
 
     const getElderlyPatients = async function() {
-        const qryStrGetPatients = "SELECT * FROM `patientsdb`.patients WHERE dateOfBirth >= '2020-01-01' ORDER BY fullName ASC";
+        const qryStrGetPatients = "SELECT * FROM `patientsdb`.patients WHERE dateOfBirth <= '2020-01-01' ORDER BY fullName ASC";
         try {
             const dbConnection = dbConnectionMgr.getConnection();
             const [patients] = await dbConnection.promise().query(qryStrGetPatients);
