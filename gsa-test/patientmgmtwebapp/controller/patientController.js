@@ -36,7 +36,7 @@ const patientController = (function(){
     const addNewPatient = async function(req, res) {
         
         // console.log("bodyyyy : " , req.body);
-        const patient = new Patient(pId, req.body.patientIdNumber, req.body.fullName, req.body.emailAddress,
+        const patient = new Patient(req.body.patientIdNumber, req.body.fullName, req.body.emailAddress,
                                     req.body.contactPhoneNumber, req.body.dateOfBirth, req.body.ddlDepartment, req.body.radioIsOutPatient);
         try {
             const opRes = await patientDAO.savePatient(patient);

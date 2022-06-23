@@ -43,10 +43,10 @@ const patientDAO = (function() {
             throw error;
         }
     };
-    let pId =5;
+    let pId =7;
     const savePatient = async function(patient) {
         const cmdStrSavePatient = `INSERT INTO patients
-                (patientId,
+                (
                 patientIdNumber,
                 fullName,
                 emailAddress,
@@ -55,7 +55,7 @@ const patientDAO = (function() {
                 ddlDepartment,
                 isAnOutPatient)
         VALUES
-                (${++pId},
+                (
                 '${patient.patientIdNumber}',
                 '${patient.fullName}',
                 '${patient.emailAddress}',
