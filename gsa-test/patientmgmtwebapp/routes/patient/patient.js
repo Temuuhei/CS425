@@ -20,6 +20,15 @@ patientRouter.get("/list", async (req, res, next) => {
     // res.render("product-list", {products: products});
 });
 
+patientRouter.get("/list/elderly", async (req, res, next) => {
+    const patients = await patientController.getElderlyPatients(req, res);
+    console.log(patients);
+    res.locals = {patients: patients};
+    // pug file rendering
+    res.render("patients");
+    // res.render("product-list", {products: products});
+});
+
 patientRouter.get("/new", (req, res, next) => {
     res.sendFile(path.join(__dirname, "../../views", "patient-form.html"));
 });

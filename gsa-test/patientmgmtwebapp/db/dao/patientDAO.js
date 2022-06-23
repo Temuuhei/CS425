@@ -21,7 +21,19 @@ const patientDAO = (function() {
      * Fetches and returns all available products in the database
      */
     const getPatients = async function() {
-        const qryStrGetPatients = "SELECT * FROM `patientsdb`.patients";
+        const qryStrGetPatients = "SELECT * FROM `patientsdb`.patients ORDER BY fullName ASC";
+        try {
+            const dbConnection = dbConnectionMgr.getConnection();
+            const [patients] = await dbConnection.promise().query(qryStrGetPatients);
+            return patients;
+        } catch (error) {
+            console.log(`DB Access Error: ${error}`);
+            throw error;
+        }
+    };
+
+    const getElderlyPatients = async function() {
+        const qryStrGetPatients = "SELECT * FROM `patientsdb`.patients WHERE dateOfBirth >= '2020-01-01' ORDER BY fullName ASC";
         try {
             const dbConnection = dbConnectionMgr.getConnection();
             const [patients] = await dbConnection.promise().query(qryStrGetPatients);
@@ -64,7 +76,8 @@ const patientDAO = (function() {
 
     return {
         getPatients: getPatients,
-        savePatient: savePatient
+        savePatient: savePatient,
+        getElderlyPatients: getElderlyPatients
     }
 })();
 
