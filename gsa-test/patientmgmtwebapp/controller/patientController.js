@@ -19,6 +19,17 @@ const patientController = (function(){
         }
     };
 
+    const getElderlyPatients = async (req, res) => {
+        try{
+            const patients = await patientDAO.getElderlyPatients();
+            // console.log(`Controller: Patient list: ${patients}`);
+            return patients;
+        } catch (error) {
+            res.status(500);
+            res.render("50x", {error: error});
+        }
+    };
+
     var pId;
     // console.log("11111111" , pId);
 
@@ -39,7 +50,8 @@ const patientController = (function(){
 
     return {
         getPatients: getPatients,
-        addNewPatient: addNewPatient
+        addNewPatient: addNewPatient,
+        getElderlyPatients: getElderlyPatients
     }
 })();
 
