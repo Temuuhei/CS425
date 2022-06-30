@@ -7,7 +7,7 @@
 const dbConfig = {
     host: "localhost",
     user: "root",
-    password: "Temkadii 1",
+    password: "YOURPASSWORD",
     database: "patientsdb"
 };
 
