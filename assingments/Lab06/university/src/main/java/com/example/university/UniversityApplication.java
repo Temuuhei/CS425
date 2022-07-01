@@ -54,13 +54,13 @@ public class UniversityApplication {
 	// 5.5.2
 
 	public static int findSecondBiggest(int[] arr) {
-		int firstMax = arr[0];
-		int secondMax = arr[0];
-		for(int i = 1; i < arr.length; i++) {
+		int firstMax = Integer.MIN_VALUE;
+		int secondMax = Integer.MIN_VALUE;
+		for(int i = 0; i < arr.length; i++) {
 			if (firstMax < arr[i]) {
 				secondMax = firstMax;
 				firstMax = arr[i];
-			} else {
+			} else if (arr[i] > secondMax){
 				secondMax = arr[i];
 			}
 		}
@@ -87,11 +87,11 @@ public class UniversityApplication {
 		// 5.5.1
 		int[] arr = {1,2,3,5,7,30,35};
 		// 5.5.2
-		int[] arr1 = {19,9,11,0,12};
+		int[] arr1 = {55, 10, 60, 14, 21, 35};
 		printHelloWorld(arr);
 		System.out.printf("[1,2,3,5,7,30,35] --> Second max = %s",findSecondBiggest(arr));
 		System.out.println("");
-		System.out.printf("[19,9,11,0,12] --> Second max = %s",findSecondBiggest(arr1));
+		System.out.printf("[55, 10, 60, 14, 21, 35] --> Second max = %s",findSecondBiggest(arr1));
 	}
 
 }
