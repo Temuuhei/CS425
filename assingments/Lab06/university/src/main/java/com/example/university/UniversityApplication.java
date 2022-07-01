@@ -58,11 +58,9 @@ public class UniversityApplication {
 		int secondMax = Integer.MIN_VALUE;
 		for(int i = 0; i < arr.length; i++) {
 			if (firstMax < arr[i]) {
+				secondMax = firstMax;
 				firstMax = arr[i];
-			}
-		}
-		for(int i = 0; i < arr.length; i++) {
-			if (secondMax < arr[i] && firstMax != arr[i]) {
+			} else if (arr[i] > secondMax){
 				secondMax = arr[i];
 			}
 		}
