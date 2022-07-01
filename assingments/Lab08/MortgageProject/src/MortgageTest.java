@@ -14,8 +14,8 @@ public class MortgageTest {
 	@Test
 	public void test2() {
 		MortgageCalculator mc = new MortgageCalculator();
-		double result = mc.computeMaxMortgage(2001, 5, 2, 3000, false, 0, "Architect");
-	    assertEquals(180000, result, 0.001);
+		double result = mc.computeMaxMortgage(2011, 5, 2, 3000, false, 0, "Architect");
+	    assertEquals(0, result, 0.001);
 	}
 	
 	@Test
