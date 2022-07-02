@@ -1,0 +1,206 @@
+CS425 – Software Engineering
+Midterm Exam: Structure and Review Points
+The Midterm Exam will consist of questions given in 2 parts, as follows:
+Part 1: Theory – This part will be composed of Knowledge-based questions, including Short answer questions, True/False questions (some + rationale), Multiple-Choice questions and some short/small coding questions.
+Part 2: Software Engineering skills – Requirements elicitation & specification, Analysis, Design, Architecture / Coding / Problem solving skills – This part will be composed of questions requiring Object-oriented Software analysis and design, including diagrams.
+The Exam will be all computer-based. i.e. You will use computers for both parts 1 and 2. However, for diagrams, you are free to draw using Pencil and Paper; take a photo of your diagram and upload to submit.
+The exam duration will be 2 hours (timed from 10 am to 12 noon). The following are the relevant lessons/topics and sample questions:
+Lesson 1: Introduction to Software Engineering and Development Methodologies 1. WhatisSoftwareEngineering?
+1. Software engineering is the process of analyzing user needs and designing, constructing, and testing end-user applications that will satisfy these needs through the use of software programming languages. It is the application of engineering principles to software development.
+2. SoftwareDevelopmentmethodologies: 2.1. Waterfall
+2.1.1. Document heavy
+2.1.2. Needs Requirement freezing (requirement should not
+change)
+
+2.2.
+2.1.3. Not Iterative
+2.1.4. Good for small/simple projects – Easy to use
+RUP
+2.2.1. Document heavy
+2.2.2. Iterative
+2.2.3. Not light weight
+2.2.4. Component-based development
+2.2.5. Specify requirements as Use-case
+2.2.6. 4 Phases:
+2.2.6.1. Inception 2.2.6.2. Elaboration 2.2.6.3. Construction 2.2.6.4. Transition
+Agile/Scrum
+2.3.1. Iterative
+2.3.2. User Stories + Acceptance Criteria
+2.3.3. Good for change management
+2.3.4. Light-weight – low documentation
+2.3.5. Cross-functional
+2.3.6. Good for complex projects
+2.3.7. Customer Interaction
+2.3.8. Greater success rate
+Scrum:
+2.4.1. Scrum team including roles: ...
+2.3.
+2.4.
+2.4.1.1. 2.4.1.2. 2.4.1.3.
+Product Owner
+Scrum Master
+Developers, Designer, Testers, Architects, Ops etc.
+2.4.2. Daily Scrum standup meeting / Sprint execution 2.4.3. Artifacts:
+2.4.3.1. 2.4.3.2. 2.4.3.3. 2.4.3.4. 2.4.3.5. 2.4.3.6.
+Product backlog Sprint backlog Burndown chart Impediments list Software (Release) ...
+
+2.5.
+2.6. 2.7. 2.8.
+XP
+2.5.1. Extreme Programming
+2.5.2. Pair programming
+2.5.3. TDD
+Lean process model
+2.6.1. Emphasize business value to customer with no waste
+2.6.2. Toyota, Ford
+Kanban
+2.7.1. Similar to Agile/Scrum but without the Sprints
+2.7.2. Never pass defective products
+DevOps
+2.8.1. Close collab btw dev and ops
+2.8.2. CI/CD - Continuous Integration / Continuous Delivery
+2.8.3.
+2.4.3.7. User story map 2.4.4. Ceremonies:
+2.4.4.1. 2.4.4.2. 2.4.4.3.
+Sprint planning
+Spring Review & Sprint Retrospective Backlog grooming or refinement
+2.4.5. Advantages:
+2.4.5.1. Scrum helps to complete projects quickly and
+efficiently
+2.4.5.2. Large projects are divided into small easily
+manageable projects
+2.4.5.3. The team gets a clear idea how the project is
+going through the scrum meetings 2.4.6. Challenges:
+2.4.6.1. 2.4.6.2. 2.4.6.3.
+Inadequate sprint duration Backlog management
+No best practice
+3. Question:WhatisthedifferencebetweenRUPandAgile/Scrum?
+3.1. RUP is Use-Case driven, model-heavy
+3.2. ...
+4. Question:WhatdoesRUPandAgile/Scrumhaveincommon? 4.1. ...
+
+4.2. ... 5.
+Lesson 2: Scrum
+1. (SeepointsaboutScrumabove) 2. ...
+ Lesson 2: Working with
+1. WhatisGit? 1.1.
+1.2.
+1.3. ... 2.
+2.1.
+2.2. ... 2.3.
+2.3.1. 2.3.2. 2.3.3. 2.3.4. 2.3.5. 2.3.6. 2.3.7. 2.3.8. 2.3.9. 2.3.10. 2.3.11. 2.3.12. 2.3.13. 2.3.14. 2.3.15. 2.3.16.
+Git & Github
+  VCS - Distributed
+ CLI tool obtainable git-scm.com
+ What is the difference between Git and Github?
+ Github is git hosted online
+ Essential Git commands and their syntax/purpose:
+ Git init
+Git add
+Git status Git commit Git log
+Git push
+Git branch Git checkout Git switch Git config Git merge Git clone
+Git fetch
+Git pull
+Git diff
+git fork???
+ 
+3. Describe/Performtheprocess/stepsforinitializinganewgitproject repository and sharing/inviting team member(s) as collaborators/contributors/committers.
+4. Describe/Perform the process/steps for contributing to a 3rd party repository.
+5. ...
+Lesson3: Requirements 1
+1. Whatarethetypes/categoriesofSoftwareRequirements? 1.1.
+1.2.
+1.3.
+2. Agilerequirements
+ 3. ...
+2.1.
+In Agile, we can Specify software system requirements using: 2.1.1.
+2.1.2. 2.1.3. 2.1.4.
+Functional Reqs
+ Non-function requirements
+ Business reqs
+ Text or statement
+ Context diagram
+ Use-cases
+ User stories
+Lesson4a/b: Requirements 2 – Agile practices for gathering/specifying requirements
+1. Userstory.Whatisthestandardformatforspecifying: 1.1.
+1.2.
+1.3.
+2. CharacteristicsofGoodUserStories(INVEST);
+2.1. Independent
+2.2. Negotiable
+ As a <role>
+ I want to <goal>
+ So that <outcome>
+ 
+ 2.3. 2.4. 2.5. 2.6.
+3. Userstorymapx
+4. Mainscenario
+5. WhatisanAcceptanceCriteria? 6. UI
+7. SplittingofUserstories
+8. EstimatingthetimeforUserstory 9. ...
+Lesson4c: Requirements 3
+1. Howdowecommunicaterequirements?
+1.1.     Activity diagram
+1.2.     State machine diagram
+1.3.     Question: Which one of the following will be useful for
+Communicating Software requirements:
+1.3.1. Deployment diagram
+1.3.2. Activity diagram
+1.3.3. Class Component diagram
+2. Question:NamesomeNFRs
+2.1. ...
+2.2. ...
+2.3. ...
+2.4. ...
+2.5. ...
+2.6. ...
+2.7. ...
+3. ...
+Lesson5: Analysis
+Valuable
+ Estimable
+ Small
+ Testable
+       
+1. WhatisDomainDrivenDesign?WhatisDomainmodeling? 1.1. ...
+2. ArtifactsproducedfromDomainmodeling?
+2.1. ...
+2.2. ...
+3. (25points)GivenaProblemStatement,performAnalysisand
+produce/create a domain (solution) model – e.g. see the problem
+statement for the Fairfield Library system
+4. ...
+Lesson6: Architecture
+1. WhatisSoftwareArchitecture? 2. Architecturalstyles
+2.1. ...
+2.2. ...
+2.3. ...
+2.4. ...
+2.5. What is the difference between Loose-Coupling versus Tight
+Coupling? Give example(s).
+2.6. What is SOA?
+2.7. ...
+3. ...
+Lesson7: Design
+1. Domainentities
+2. Valueobjects
+3. DomainServices
+4. DataAccessobects 5. Domainevents
+6. InDesign,whatdoesthePrincipleofHighCohesion,LooseCouplingmean? 7. WhataretheSOLIDprinciplesforOOsoftwareDesign?
+8. ...
+
+Lesson8: Clean Code
+1. Whatdowemeanby“Cleancode”?
+a. Cleancodeisareader-focuseddevelopmentstylethatproduces
+software that's easy to write, read and maintain. Often, you may be tempted to consider your work complete when the application operates as expected. But we're not merely writing code for computer consumption.
+2. CleanCodebestpracticesfor: a. Classes,Variable
+b. Methods
+c. Commenting 3. ...
+Note: For some of the questions/tasks in the part2 of the Exam, you will be expected to take screenshot(s) of your work/result(s), and save them to an image file (.png or .jpg or .jpeg only) and include these in the zip file, which you will submit.
+Also, when you take the screenshots, it should be of the entire computer screen (NOT a snippet or a window
+MacOS: Cmd + Shift + 3
+Windows: Windows key + PrintScreen key
+//-- The End --//
