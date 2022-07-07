@@ -37,19 +37,24 @@ public class StudentApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("Hello world Spring Boot!!");
-		Student temka = new Student( (long) 1,"613754","Temuujin", "T", "Tsogt", 4.0, LocalDate.of(2021,11,01));
-		Student temka1 = new Student( (long) 2,"6137542","Temuujin2", "T", "Tsogt", 4.0, LocalDate.of(2020,11,01));
+		var temka = new Student( 1,"613754","Temuujin", "T", "Tsogt", 4.0, LocalDate.of(2021,11,01));
+		var temka1 = new Student( 2,"6137542","Temuujin2", "T", "Tsogt", 4.0, LocalDate.of(2020,11,01));
 		
 		// many2one - students - class
 		// one2many class - students
-		Classroom class1 = new Classroom(null,"McLaughlin building", "M105");
+		var class1 = new Classroom(null,"McLaughlin building", "M107");
 		createNewClass(class1);
 		System.out.println(temka.toString());
-		createNewStudent(temka);
-		createNewStudent(temka1);
-
-		temka.setClassroom(class1);
-		temka1.setClassroom(class1);
+		var createdStudent = createNewStudent(temka);
+		var createdStudent1 = createNewStudent(temka1);
+		createdStudent.setClassroom(class1);
+		createdStudent1.setClassroom(class1);
+		class1.addStudent(temka);
+		class1.addStudent(temka1);
+		System.out.println("Classroom's Student =========");
+		System.out.println(class1.getStudents());
+		// temka.setClassroom(class1);
+		// temka1.setClassroom(class1);
 		// var testStud = studentService.getStudentById((long) 15);
 		// testStud.setClassroom(class1);
 		

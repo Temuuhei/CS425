@@ -1,5 +1,6 @@
 package edu.miu.cs.cs425.studentmgmt.student.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -30,6 +31,7 @@ public class Classroom {
         this.classId = null;
         this.name = name;
         this.roomNumber = number;
+        this.students = new ArrayList<>();
     }
 
     
@@ -91,6 +93,7 @@ public class Classroom {
     }
 
     public void addStudent(Student student) {
+        student.setClassroom(this);
         students.add(student);
     }
 

@@ -57,7 +57,7 @@ public class Student {
     private Classroom classroom;
 
     public Student(){}
-    public Student(Long studentId, String studentNumber,String firstName, String middleName, String lastName, Double cgpa, LocalDate enrollmentDate) {
+    public Student(long studentId, String studentNumber,String firstName, String middleName, String lastName, Double cgpa, LocalDate enrollmentDate) {
         this.studentId = studentId;
         this.studentNumber = studentNumber;
         this.firstName = firstName;
@@ -152,7 +152,7 @@ public class Student {
         return "{ studentId:" + studentId + "," + "studentNumber: " + studentNumber + ", " +  
                 "firstName: " + firstName + ", " + "middleName: " + middleName + ", LastName: " + lastName + 
                 ", cgpa: " + cgpa + ", dateOfEnrollment:" + dateOfEnrollment + " transcript: " + transcriptId + 
-                "}";
+                " classroom :" + classroom + "}";
     }
 
 
