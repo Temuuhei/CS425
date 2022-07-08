@@ -46,7 +46,6 @@ public class StudentController {
     public String addNewStudent(@Valid @ModelAttribute("student") Student student, BindingResult bindingResult, Model model) {
         
         if (bindingResult.hasErrors()) {
-            System.out.println("zlzl");
             model.addAttribute("student", student);
             model.addAttribute("errors", bindingResult.getAllErrors());
             return "secured/student/new";
