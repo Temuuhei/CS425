@@ -1,0 +1,34 @@
+In this assignment, you are required to implement a new Spring Web application, named "eRegistrarWebAPI", which is a RESTful WebAPI for your online Student Registration system for a University, from Lab10-Part2.
+
+To do this, using Spring Boot, create a new web application project named, eRegistrarWebAPI. Your solution should make use of the following tools, technologies, frameworks and APIs: Spring Web MVC, Spring Data JPA and a relational database such as MySQL.
+
+You are expected to implement the following 4 REST APIs endpoints:
+
+http://localhost/eregistrar/api/student/list - Displays JSON array of Students data.
+http://localhost/eregistrar/api/student/register - Register a new Student into the system
+http://localhost/eregistrar/api/student/get/1 - Read/display a Student data for student with ID, 1.
+http://localhost/eregistrar/api/student/update/1 - Retrieves and Updates Student data for student with ID, 1.
+http://localhost/eregistrar/api/student/delete/3 - Delete the student data for student with ID, 3.
+Note: The specification for Student data, is as follows:
+
+{
+
+   studentId : (should be the primary key field)
+
+   studentNumber: e.g. 000-61-0001 (required)
+
+   FirstName: e.g. Anna (required)
+
+   MiddleName: (optional)
+
+   LastName: e.g. Smith (required)
+
+   cgpa: e.g. 3.78 (optional)
+
+   enrollmentDate: e.g. 2019-5-12 (required)
+
+   isInternational: (values: "Yes", "No") (required) - Hint: Implement/present this data in a drop-down list or Radio button
+
+When complete: Take screenshots of your eRegistrarWebAPI output screens using the Postman tool (or some other webclient tool) and add them to a subfolder inside your project named screenshots; zip your project folder into a zip file named, eregistrar.zip and upload/Submit here on Sakai or push to your github and submit its url to sakai. (Advice: Use the elibraryrestapi project, which was studied in class, as a guide).
+
+Optional: Implement a basic Frontend/UI client webapp for your eRegistrarWebAPI services. Use may use plain-vanilla HTML+CSS+JS or any Web Frontend technologies/libraries/framework you know/like (e.g. React.JS, Angular, Vue.JS etc.).
