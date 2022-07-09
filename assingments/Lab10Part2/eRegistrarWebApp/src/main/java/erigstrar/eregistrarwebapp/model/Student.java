@@ -41,7 +41,6 @@ public class Student {
     private LocalDate enrollmentDate;
 
     @Column(name= "isInternational", nullable = false)
-    // @Pattern(regexp = "^true$|^false$", message = "allowed input: true or false")
     private boolean isInternational;
 
     

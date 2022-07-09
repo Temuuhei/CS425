@@ -26,6 +26,7 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
+    // GET all Students
     @GetMapping( value = {"/list"})
     public ModelAndView listStudents() {
         var students = studentService.getAllStudents();
@@ -35,13 +36,14 @@ public class StudentController {
         return modelAndView;
     }
 
+    // call the new form for create
     @GetMapping(value = {"/new"})
     public String displayNewStudentForm(Model model) {
         var newStudent = new Student();
         model.addAttribute("student", newStudent);
         return "secured/student/new";
     }
-
+    // Create Post
     @PostMapping(value = {"/new"}) // PRG: Post-Redirect-Get
     public String addNewStudent(@Valid @ModelAttribute("student") Student student, BindingResult bindingResult, Model model) {
         
@@ -54,6 +56,7 @@ public class StudentController {
         return "redirect:/eregistrar/student/list";
     }
 
+    //edit form with getByStudentId
     @GetMapping( value = {"/edit/{studentId}"})
     public String displayEditStudent(@PathVariable Integer studentId, Model model) {
         var student = studentService.getStudentById(studentId);
@@ -66,6 +69,7 @@ public class StudentController {
 
     }
 
+    // edit then save
     @PostMapping(value = {"/edit"})
     public String updateStudent(@Valid @ModelAttribute("student") Student student,BindingResult bindingResult, Model model) {
         // if (bindingResult.hasErrors()) {
@@ -77,7 +81,7 @@ public class StudentController {
         studentService.updateStudent(student);
         return "redirect:/eregistrar/student/list";
     }
-
+    // Delete by ID
     @GetMapping(value = {"/delete/{studentId}"}) //TODO Change to use QueryString param
     public String deleteStudent(@PathVariable Integer studentId) {
 
@@ -94,6 +98,5 @@ public class StudentController {
         modelAndView.setViewName("secured/student/list");
         return modelAndView;
     }
-
 
 }
