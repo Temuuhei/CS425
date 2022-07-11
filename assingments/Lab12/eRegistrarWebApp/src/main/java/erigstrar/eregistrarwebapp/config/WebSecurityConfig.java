@@ -19,7 +19,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 //@EnableGlobalMethodSecurity(securedEnabled = true, proxyTargetClass = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private UserDetailsService userDetailsService;
+    private final UserDetailsService userDetailsService;
 
     @Autowired
     public WebSecurityConfig(UserDetailsService registrarUserDetailsService) {
