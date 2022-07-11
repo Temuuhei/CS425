@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="author" content="Ts. Temuujin">
+    <link rel="icon" href="favicon.ico">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-EmRcsPP774S9MOi4ywB+JXUWjYnBdyInMzG2XsC5siZEUpexqxOMJW358dCYEjPu" crossorigin="anonymous">
+    <title>GDM - Create Product</title>
+</head>
+<body>
+<header th:replace="fragments/header :: header"></header>
+<p>&nbsp;</p>
+<main>
+    <div style="padding-top: 1em;" class="container">
+        <!-- main content here -->
+        <h3>
+            Product Records
+        </h3>
+        <hr>
+        <form id="formProduct" action="/gdm/product/new" method="post" th:object="${product}">
+            <fieldset>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="productNumber">*Product Number:</label>
+                            <input class="form-control" type="text" name="productNumber" id="productNumber" placeholder="100001" required th:value="${product.productNumber}" autofocus>
+                            <small class="form-text text-muted">Enter the Product</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="productName">*Name:</label>
+                            <input class="form-control" type="text" name="productName" id="productName" placeholder="Enter First Name" required th:value="${product.productName}">
+                            <small class="form-text text-muted">Enter the Supplier's Name</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="unitPrice">Price:</label>
+                            <input class="form-control" type="number" name="unitPrice" id="unitPrice" placeholder="Enter Price" th:value="${product.unitPrice}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="quantityInStock">*Quantity Of Stock:</label>
+                            <input class="form-control" type="number" name="quantityInStock" placeholder="42 etc.." id="quantityInStock" required
+                                   th:value="${product.quantityInStock}">
+                            <small class="form-text text-muted">Enter the quantity of stock</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="dateSupplied">Date of Supplied:</label>
+                            <input class="form-control" type="date" name="dateSupplied" id="dateSupplied"  step="0.01" th:value="${product.dateSupplied}">
+                            <small class="form-text text-muted">Enter the Date of Supplied</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div>
+                            <label for="supplier">Supplier:</label>
+                        </div>
+                        <select class="form-control" required="required"
+                                th:value="${product.supplierId}" name="supplierId" id="supplierId">
+                            <option disabled="disabled" selected="selected" > --
+                                Select Supplier --
+                            </option>
+                            <option th:each="supplier : ${suppliers}" th:value="${supplier.supplierId}"
+                                    th:text="${supplier.toString}" >
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="text-align: right;" class="col-md-12">
+                        <a class="std-lnk-btn" href="/gmd/product/list">Cancel</a>
+                        <input class="std-btn btn btn-secondary btn-inline" type="reset" value="Reset">
+                        <input class="std-btn btn btn-primary btn-inline" type="submit" value="Add Product">
+                        <!-- <input class="std-btn btn-primary btn-inline" type="reset" value="Reset">
+                        <input class="std-btn btn-secondary btn-inline" type="submit" value="Add Student"> -->
+                        <!-- <input style="margin-left: 1em; padding: .5em 4em;" id="btnRegisterStudent" type="submit" class="btn btn-primary btn-inline" value="Submit"></input> -->
+                        <!-- <input style="padding: .5em 4em;" id="btnReset" type="reset" class="std-btn btn-secondary btn-inline" value="Reset"></input> -->
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</main>
+<footer th:replace="fragments/footer :: footer"></footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>
