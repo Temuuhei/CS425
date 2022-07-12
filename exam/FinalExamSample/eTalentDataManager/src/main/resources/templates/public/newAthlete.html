@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="author" content="Ts. Temuujin">
+    <link rel="icon" href="favicon.ico">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-EmRcsPP774S9MOi4ywB+JXUWjYnBdyInMzG2XsC5siZEUpexqxOMJW358dCYEjPu" crossorigin="anonymous">
+    <title>eTDM - Create Athlete</title>
+</head>
+<body>
+<header th:replace="fragments/header :: header"></header>
+<p>&nbsp;</p>
+<main>
+    <div style="padding-top: 1em;" class="container">
+        <!-- main content here -->
+        <h3>
+            Athlete Records
+        </h3>
+        <hr>
+        <form id="formProduct" action="/etdm/athlete/new" method="post" th:object="${athlete}">
+            <fieldset>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="ssn">*SSN:</label>
+                            <input class="form-control" type="text" name="ssn" id="ssn" pattern="\d{3}-\d{2}-\d{2}" placeholder="123-45-68" required th:value="${athlete.ssn}" autofocus>
+                            <small class="form-text text-muted">Enter the SSN</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="fullName">*Full Name:</label>
+                            <input class="form-control" type="text" name="fullName" id="fullName" placeholder="Enter Full Name" required th:value="${athlete.fullName}">
+                            <small class="form-text text-muted">Enter the Athlete's Name</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone Number:</label>
+                            <input class="form-control" type="text" name="phoneNumber" id="phoneNumber" placeholder="Enter Phone Number" th:value="${athlete.phoneNumber}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="dateOfBirth">*Date Of Birth:</label>
+                            <input class="form-control" type="date" name="dateOfBirth" id="dateOfBirth" required
+                                   th:value="${athlete.dateOfBirth}">
+                            <small class="form-text text-muted">Enter the Date of Birth</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="dateOfRegistration">Date of Registration:</label>
+                            <input class="form-control" type="date" name="dateOfRegistration" id="dateOfRegistration"  step="0.01" th:value="${athlete.dateOfRegistration}">
+                            <small class="form-text text-muted">Enter the Date of Registration</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="totalNumberOfMedalsWon">Medals of Won:</label>
+                            <input class="form-control" type="number" name="totalNumberOfMedalsWon" id="totalNumberOfMedalsWon"  step="1" th:value="${athlete.totalNumberOfMedalsWon}">
+                            <small class="form-text text-muted">Enter the Count of medals won</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="monthSalary">*Month Salary:</label>
+                            <input class="form-control" type="text" name="monthSalary" id="monthSalary" placeholder="123" required th:value="${athlete.monthSalary}">
+                            <small class="form-text text-muted">Enter the Athlete's Month Salary</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="emailAdress">Email:</label>
+                            <input class="form-control" type="text" name="emailAdress" id="emailAdress" placeholder="athlete1@mail.com" th:value="${athlete.emailAdress}">
+                            <small class="form-text text-muted">Enter the Athlete's Email</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="text-align: right;" class="col-md-12">
+                        <a class="std-lnk-btn" href="/etdm/athlete/list">Cancel</a>
+                        <input class="std-btn btn btn-secondary btn-inline" type="reset" value="Reset">
+                        <input class="std-btn btn btn-primary btn-inline" type="submit" value="Add Athlete">
+                        <!-- <input class="std-btn btn-primary btn-inline" type="reset" value="Reset">
+                        <input class="std-btn btn-secondary btn-inline" type="submit" value="Add Student"> -->
+                        <!-- <input style="margin-left: 1em; padding: .5em 4em;" id="btnRegisterStudent" type="submit" class="btn btn-primary btn-inline" value="Submit"></input> -->
+                        <!-- <input style="padding: .5em 4em;" id="btnReset" type="reset" class="std-btn btn-secondary btn-inline" value="Reset"></input> -->
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</main>
+<footer th:replace="fragments/footer :: footer"></footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>
