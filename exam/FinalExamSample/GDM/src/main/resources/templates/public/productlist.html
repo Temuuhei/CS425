@@ -41,7 +41,7 @@
                 <td th:text="${counter.count}+${'.'}"></td>
                 <td th:text="${product.productNumber}"></td>
                 <td th:text="${product.productName}"></td>
-                <td th:text="${#strings.replace(#numbers.formatCurrency(product.unitPrice), '.00', '')}"></td>
+                <td th:text="${#strings.replace(#numbers.formatCurrency(product.unitPrice), '.00', '.00')}"></td>
                 <td th:text="${product.quantityInStock}"></td>
                 <td th:text="${product.dateSupplied}"></td>
                 <td th:text="${product.supplierId}"></td>
