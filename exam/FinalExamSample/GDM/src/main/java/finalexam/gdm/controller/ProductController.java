@@ -50,7 +50,6 @@ public class ProductController {
     // Create Post
     @PostMapping(value = {"/new"}) // PRG: Post-Redirect-Get
     public String addNewProduct(@Valid @ModelAttribute("product") Product product, BindingResult bindingResult, Model model) {
-        System.out.println( "Orj irj bna    " + product.getSupplierId());
         if (bindingResult.hasErrors()) {
             model.addAttribute("product", product);
             model.addAttribute("errors", bindingResult.getAllErrors());

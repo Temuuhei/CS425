@@ -8,7 +8,7 @@
     <meta name="author" content="Ts. Temuujin">
     <link rel="icon" href="favicon.ico">
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-EmRcsPP774S9MOi4ywB+JXUWjYnBdyInMzG2XsC5siZEUpexqxOMJW358dCYEjPu" crossorigin="anonymous">
-    <title>GDM - Products</title>
+    <title>eTDM - Athletes</title>
 </head>
 <body>
 <header th:replace="fragments/header :: header"></header>
@@ -16,10 +16,10 @@
 <div class="container">
     <div class="row">
         <div class="text-left"  style="text-align: left;" >
-            <h3 >All Products Information</h3>
+            <h3 >All Athletes Information</h3>
         </div>
         <div class="text-right col-md-8"  style="text-align: right" >
-            <a class="btn btn-primary btn-inline bg-light" href="/gdm/product/new">Register a new Product</a>
+            <a class="btn btn-primary btn-inline bg-light" href="/etdm/athlete/new">Register a new Athlete</a>
         </div>
     </div>
     <hr/>
@@ -28,23 +28,27 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Product Number</th>
-                <th scope="col">Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Quantity in Stock</th>
-                <th scope="col">Date of Supplied</th>
-                <th scope="col">Supplier</th>
+                <th scope="col">SSN</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Date of Birth</th>
+                <th scope="col">Date of Registration</th>
+                <th scope="col">Medals won</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Email</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="product, counter : ${products}">
+            <tr th:each="athlete, counter : ${athletes}">
                 <td th:text="${counter.count}+${'.'}"></td>
-                <td th:text="${product.productNumber}"></td>
-                <td th:text="${product.productName}"></td>
-                <td th:text="${#strings.replace(#numbers.formatCurrency(product.unitPrice), '.00', '.00')}"></td>
-                <td th:text="${product.quantityInStock}"></td>
-                <td th:text="${product.dateSupplied}"></td>
-                <td th:text="${product.supplierId}"></td>
+                <td th:text="${athlete.ssn}"></td>
+                <td th:text="${athlete.fullName}"></td>
+                <td th:text="${athlete.phoneNumber}"></td>
+                <td th:text="${athlete.dateOfBirth}"></td>
+                <td th:text="${athlete.dateOfRegistration}"></td>
+                <td th:text="${athlete.totalNumberOfMedalsWon}"></td>
+                <td th:text="${#strings.replace(#numbers.formatCurrency(athlete.monthSalary), '.00', '.00')}"></td>
+                <td th:text="${athlete.emailAdress}"></td>
             </tr>
             </tbody>
         </table>
