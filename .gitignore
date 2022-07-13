@@ -64,6 +64,8 @@ typings/
 
 # Output of 'npm pack'
 *.tgz
+# Finder information about that folder,
+.DS_Store
 
 # Yarn Integrity file
 .yarn-integrity
