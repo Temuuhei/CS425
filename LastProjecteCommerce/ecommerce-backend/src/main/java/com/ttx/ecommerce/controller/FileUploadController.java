@@ -30,13 +30,13 @@ public class FileUploadController {
         return fileStoreService.store(file);
     }
 
-
     @GetMapping("/")
     public ResponseEntity<List<FileInfo>> getListFiles() {
         List<FileInfo> fileInfos = fileStoreService.loadAll().map(path -> {
             String filename = path.getFileName().toString();
             String url = MvcUriComponentsBuilder
-                    .fromMethodName(FileUploadController.class, "getFile", path.getFileName().toString()).build().toString();
+                    .fromMethodName(FileUploadController.class, "getFile", path.getFileName().toString()).build()
+                    .toString();
 
             return new FileInfo(filename, url);
         }).collect(Collectors.toList());
@@ -49,7 +49,8 @@ public class FileUploadController {
     public ResponseEntity<Resource> getFile(@PathVariable String filename) {
         Resource file = fileStoreService.load(filename);
         return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"").body(file);
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
+                .body(file);
     }
 
 }

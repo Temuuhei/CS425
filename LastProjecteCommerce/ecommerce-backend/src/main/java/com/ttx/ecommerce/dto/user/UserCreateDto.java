@@ -1,6 +1,5 @@
 package com.ttx.ecommerce.dto.user;
 
-
 import com.ttx.ecommerce.enums.Role;
 
 public class UserCreateDto {

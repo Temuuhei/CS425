@@ -22,7 +22,8 @@ public class ProductDto {
         this.setCategoryId(product.getCategory().getId());
     }
 
-    public ProductDto(@NotNull String name, @NotNull String imageURL, @NotNull double price, @NotNull String description, @NotNull Integer categoryId) {
+    public ProductDto(@NotNull String name, @NotNull String imageURL, @NotNull double price,
+            @NotNull String description, @NotNull Integer categoryId) {
         this.name = name;
         this.imageURL = imageURL;
         this.price = price;

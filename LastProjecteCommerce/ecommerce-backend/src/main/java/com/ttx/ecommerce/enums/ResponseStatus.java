@@ -1,7 +1,6 @@
 package com.ttx.ecommerce.enums;
 
-public enum ResponseStatus
-{
+public enum ResponseStatus {
     success,
     error
 }

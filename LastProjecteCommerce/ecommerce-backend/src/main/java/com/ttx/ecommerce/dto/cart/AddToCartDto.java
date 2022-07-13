@@ -12,8 +12,6 @@ public class AddToCartDto {
     public AddToCartDto() {
     }
 
-
-
     @Override
     public String toString() {
         return "CartDto{" +
@@ -30,7 +28,6 @@ public class AddToCartDto {
     public void setId(Integer id) {
         this.id = id;
     }
-
 
     public Integer getProductId() {
         return productId;

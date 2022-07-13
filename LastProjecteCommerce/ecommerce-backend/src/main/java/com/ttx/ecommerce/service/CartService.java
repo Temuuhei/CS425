@@ -19,48 +19,46 @@ import java.util.List;
 public class CartService {
 
     @Autowired
-    private  CartRepository cartRepository;
+    private CartRepository cartRepository;
 
-    public CartService(){}
+    public CartService() {
+    }
 
     public CartService(CartRepository cartRepository) {
         this.cartRepository = cartRepository;
     }
 
-    public void addToCart(AddToCartDto addToCartDto, Product product, User user){
+    public void addToCart(AddToCartDto addToCartDto, Product product, User user) {
         Cart cart = new Cart(product, addToCartDto.getQuantity(), user);
         cartRepository.save(cart);
     }
 
-
     public CartDto listCartItems(User user) {
         List<Cart> cartList = cartRepository.findAllByUserOrderByCreatedDateDesc(user);
         List<CartItemDto> cartItems = new ArrayList<>();
-        for (Cart cart:cartList){
+        for (Cart cart : cartList) {
             CartItemDto cartItemDto = getDtoFromCart(cart);
             cartItems.add(cartItemDto);
         }
         double totalCost = 0;
-        for (CartItemDto cartItemDto :cartItems){
-            totalCost += (cartItemDto.getProduct().getPrice()* cartItemDto.getQuantity());
+        for (CartItemDto cartItemDto : cartItems) {
+            totalCost += (cartItemDto.getProduct().getPrice() * cartItemDto.getQuantity());
         }
-        return new CartDto(cartItems,totalCost);
+        return new CartDto(cartItems, totalCost);
     }
-
 
     public static CartItemDto getDtoFromCart(Cart cart) {
         return new CartItemDto(cart);
     }
 
-
-    public void updateCartItem(AddToCartDto cartDto, User user,Product product){
+    public void updateCartItem(AddToCartDto cartDto, User user, Product product) {
         Cart cart = cartRepository.getOne(cartDto.getId());
         cart.setQuantity(cartDto.getQuantity());
         cart.setCreatedDate(new Date());
         cartRepository.save(cart);
     }
 
-    public void deleteCartItem(int id,int userId) throws CartItemNotExistException {
+    public void deleteCartItem(int id, int userId) throws CartItemNotExistException {
         if (!cartRepository.existsById(id))
             throw new CartItemNotExistException("Cart id is invalid : " + id);
         cartRepository.deleteById(id);
@@ -71,10 +69,7 @@ public class CartService {
         cartRepository.deleteAll();
     }
 
-
     public void deleteUserCartItems(User user) {
         cartRepository.deleteByUser(user);
     }
 }
-
-

@@ -1,6 +1,5 @@
 package com.ttx.ecommerce.controller;
 
-
 import com.ttx.ecommerce.dto.*;
 import com.ttx.ecommerce.dto.user.SignInDto;
 import com.ttx.ecommerce.dto.user.SignInResponseDto;
@@ -41,23 +40,24 @@ public class UserController {
         return userService.signUp(signupDto);
     }
 
-    //TODO token should be updated
+    // TODO token should be updated
     @PostMapping("/signIn")
     public SignInResponseDto Signup(@RequestBody SignInDto signInDto) throws CustomException {
         return userService.signIn(signInDto);
     }
 
-//    @PostMapping("/updateUser")
-//    public ResponseDto updateUser(@RequestParam("token") String token, @RequestBody UserUpdateDto userUpdateDto) {
-//        authenticationService.authenticate(token);
-//        return userService.updateUser(token, userUpdateDto);
-//    }
+    // @PostMapping("/updateUser")
+    // public ResponseDto updateUser(@RequestParam("token") String token,
+    // @RequestBody UserUpdateDto userUpdateDto) {
+    // authenticationService.authenticate(token);
+    // return userService.updateUser(token, userUpdateDto);
+    // }
 
-
-//    @PostMapping("/createUser")
-//    public ResponseDto updateUser(@RequestParam("token") String token, @RequestBody UserCreateDto userCreateDto)
-//            throws CustomException, AuthenticationFailException {
-//        authenticationService.authenticate(token);
-//        return userService.createUser(token, userCreateDto);
-//    }
+    // @PostMapping("/createUser")
+    // public ResponseDto updateUser(@RequestParam("token") String token,
+    // @RequestBody UserCreateDto userCreateDto)
+    // throws CustomException, AuthenticationFailException {
+    // authenticationService.authenticate(token);
+    // return userService.createUser(token, userCreateDto);
+    // }
 }

@@ -1,6 +1,5 @@
 package com.ttx.ecommerce.service;
 
-
 import com.ttx.ecommerce.config.MessageStrings;
 import com.ttx.ecommerce.exceptions.AuthenticationFailException;
 import com.ttx.ecommerce.model.AuthenticationToken;

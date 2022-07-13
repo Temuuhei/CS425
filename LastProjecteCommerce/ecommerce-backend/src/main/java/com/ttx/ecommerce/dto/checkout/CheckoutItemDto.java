@@ -3,12 +3,13 @@ package com.ttx.ecommerce.dto.checkout;
 public class CheckoutItemDto {
 
     private String productName;
-    private int  quantity;
+    private int quantity;
     private double price;
     private long productId;
     private int userId;
 
-    public CheckoutItemDto() {}
+    public CheckoutItemDto() {
+    }
 
     public CheckoutItemDto(String productName, int quantity, double price, long productId, int userId) {
         this.productName = productName;
@@ -38,7 +39,9 @@ public class CheckoutItemDto {
         this.price = price;
     }
 
-    public double getPrice(){return price;}
+    public double getPrice() {
+        return price;
+    }
 
     public int getUserId() {
         return userId;
@@ -55,7 +58,5 @@ public class CheckoutItemDto {
     public void setProductId(long id) {
         this.productId = id;
     }
-
-
 
 }

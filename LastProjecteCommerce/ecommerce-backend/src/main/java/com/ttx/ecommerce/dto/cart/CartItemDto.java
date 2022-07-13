@@ -43,6 +43,7 @@ public class CartItemDto {
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
+
     public Product getProduct() {
         return product;
     }

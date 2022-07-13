@@ -33,10 +33,10 @@ public class OrderController {
     @Autowired
     private AuthenticationService authenticationService;
 
-
     // stripe create session API
     @PostMapping("/create-checkout-session")
-    public ResponseEntity<StripeResponse> checkoutList(@RequestBody List<CheckoutItemDto> checkoutItemDtoList) throws StripeException {
+    public ResponseEntity<StripeResponse> checkoutList(@RequestBody List<CheckoutItemDto> checkoutItemDtoList)
+            throws StripeException {
         // create the stripe session
         Session session = orderService.createSession(checkoutItemDtoList);
         StripeResponse stripeResponse = new StripeResponse(session.getId());
@@ -46,7 +46,8 @@ public class OrderController {
 
     // place order after checkout
     @PostMapping("/add")
-    public ResponseEntity<ApiResponse> placeOrder(@RequestParam("token") String token, @RequestParam("sessionId") String sessionId)
+    public ResponseEntity<ApiResponse> placeOrder(@RequestParam("token") String token,
+            @RequestParam("sessionId") String sessionId)
             throws AuthenticationFailException {
         // validate token
         authenticationService.authenticate(token);
@@ -59,7 +60,8 @@ public class OrderController {
 
     // get all orders
     @GetMapping("/")
-    public ResponseEntity<List<Order>> getAllOrders(@RequestParam("token") String token) throws AuthenticationFailException {
+    public ResponseEntity<List<Order>> getAllOrders(@RequestParam("token") String token)
+            throws AuthenticationFailException {
         // validate token
         authenticationService.authenticate(token);
         // retrieve user
@@ -70,7 +72,6 @@ public class OrderController {
         return new ResponseEntity<>(orderDtoList, HttpStatus.OK);
     }
 
-
     // get orderitems for an order
     @GetMapping("/{id}")
     public ResponseEntity<Object> getOrderById(@PathVariable("id") Integer id, @RequestParam("token") String token)
@@ -79,10 +80,9 @@ public class OrderController {
         authenticationService.authenticate(token);
         try {
             Order order = orderService.getOrder(id);
-            return new ResponseEntity<>(order,HttpStatus.OK);
-        }
-        catch (OrderNotFoundException e) {
-            return new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(order, HttpStatus.OK);
+        } catch (OrderNotFoundException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
 
     }

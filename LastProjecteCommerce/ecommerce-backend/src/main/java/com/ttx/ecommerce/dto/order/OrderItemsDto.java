@@ -9,7 +9,8 @@ public class OrderItemsDto {
     private @NotNull int orderId;
     private @NotNull int productId;
 
-    public OrderItemsDto () {}
+    public OrderItemsDto() {
+    }
 
     public OrderItemsDto(@NotNull double price, @NotNull int quantity, @NotNull int orderId, @NotNull int productId) {
         this.price = price;

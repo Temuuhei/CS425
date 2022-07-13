@@ -1,6 +1,5 @@
 package com.ttx.ecommerce.controller;
 
-
 import com.ttx.ecommerce.common.ApiResponse;
 import com.ttx.ecommerce.dto.product.ProductDto;
 import com.ttx.ecommerce.model.Product;
@@ -42,7 +41,8 @@ public class WishListController {
         }
 
         @PostMapping("/add")
-        public ResponseEntity<ApiResponse> addWishList(@RequestBody Product product, @RequestParam("token") String token) {
+        public ResponseEntity<ApiResponse> addWishList(@RequestBody Product product,
+                        @RequestParam("token") String token) {
                 authenticationService.authenticate(token);
                 User user = authenticationService.getUser(token);
                 WishList wishList = new WishList(user, product);
@@ -50,6 +50,5 @@ public class WishListController {
                 return new ResponseEntity<ApiResponse>(new ApiResponse(true, "Add to wishlist"), HttpStatus.CREATED);
 
         }
-
 
 }

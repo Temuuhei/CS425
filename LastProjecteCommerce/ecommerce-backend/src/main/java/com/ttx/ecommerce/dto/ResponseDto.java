@@ -1,6 +1,5 @@
 package com.ttx.ecommerce.dto;
 
-
 public class ResponseDto {
     private String status;
     private String message;
