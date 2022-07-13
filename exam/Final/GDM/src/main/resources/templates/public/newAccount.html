@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="author" content="Ts. Temuujin">
+    <link rel="icon" href="favicon.ico">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-EmRcsPP774S9MOi4ywB+JXUWjYnBdyInMzG2XsC5siZEUpexqxOMJW358dCYEjPu" crossorigin="anonymous">
+    <title>Spe Bank - Create Account</title>
+</head>
+<body>
+<header th:replace="fragments/header :: header"></header>
+<p>&nbsp;</p>
+<main>
+    <div style="padding-top: 1em;" class="container">
+        <!-- main content here -->
+        <h3>
+            Account Records
+        </h3>
+        <hr>
+        <form id="formAccount" action="/spebank/account/new" method="post" th:object="${account}">
+            <fieldset>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="accountNumber">*Account Number:</label>
+                            <input class="form-control" type="text" name="accountNumber" id="accountNumber" placeholder="AC1002" required th:value="${account.accountNumber}" autofocus>
+                            <small class="form-text text-muted">Enter the Account Number</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="accountType">*Account Type:</label>
+                            <input class="form-control" type="text" name="accountType" id="accountType" placeholder="Enter Account Type" required th:value="${account.accountType}">
+                            <small class="form-text text-muted">Enter the Account Type</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="balance">Balance:</label>
+                            <input class="form-control" type="number" name="balance" id="balance" th:value="${account.balance}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="dateOpened">Date of Supplied:</label>
+                            <input class="form-control" type="date" name="dateOpened" id="dateOpened" th:value="${account.dateOpened}">
+                            <small class="form-text text-muted">Enter the Date of Opened</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <label for="customer">Supplier:</label>
+                        </div>
+                        <select class="form-control" required="required"
+                                th:value="${account.customerId}" name="customerId" id="customerId">
+                            <option disabled="disabled" selected="selected" > --
+                                Select Customer --
+                            </option>
+                            <option th:each="customer : ${customers}" th:value="${customer.customerId}"
+                                    th:text="${customer.toString}" >
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="text-align: right;" class="col-md-12">
+                        <a class="std-lnk-btn" href="/spebank/account/list">Cancel</a>
+                        <input class="std-btn btn btn-secondary btn-inline" type="reset" value="Reset">
+                        <input class="std-btn btn btn-primary btn-inline" type="submit" value="Add Account">
+                        <!-- <input class="std-btn btn-primary btn-inline" type="reset" value="Reset">
+                        <input class="std-btn btn-secondary btn-inline" type="submit" value="Add Student"> -->
+                        <!-- <input style="margin-left: 1em; padding: .5em 4em;" id="btnRegisterStudent" type="submit" class="btn btn-primary btn-inline" value="Submit"></input> -->
+                        <!-- <input style="padding: .5em 4em;" id="btnReset" type="reset" class="std-btn btn-secondary btn-inline" value="Reset"></input> -->
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</main>
+<footer th:replace="fragments/footer :: footer"></footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>
