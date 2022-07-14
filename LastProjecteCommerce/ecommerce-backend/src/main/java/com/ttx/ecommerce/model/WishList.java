@@ -1,22 +1,15 @@
 package com.ttx.ecommerce.model;
 
-
-
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import java.sql.Timestamp;
 import java.util.Date;
-
 
 @Entity
 @Table(name = "wishlist")
 public class WishList {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
 
     @OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "user_id")
@@ -31,7 +24,6 @@ public class WishList {
 
     public WishList() {
     }
-
 
     public WishList(User user, Product product) {
         this.user = user;

@@ -1,7 +1,5 @@
 package com.ttx.ecommerce.dto.cart;
 
-import com.ttx.ecommerce.model.Cart;
-
 import javax.validation.constraints.NotNull;
 
 public class AddToCartDto {

@@ -1,20 +1,17 @@
 package com.ttx.ecommerce.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.ttx.ecommerce.dto.cart.AddToCartDto;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 @Entity
-@Table(name="cart")
+@Table(name = "cart")
 public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
 
     @Column(name = "created_date")
     private Date createdDate;
@@ -28,13 +25,12 @@ public class Cart {
     @JoinColumn(nullable = false, name = "user_id")
     private User user;
 
-
     private int quantity;
 
     public Cart() {
     }
 
-    public Cart(Product product, int quantity, User user){
+    public Cart(Product product, int quantity, User user) {
         this.user = user;
         this.product = product;
         this.quantity = quantity;
