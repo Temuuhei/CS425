@@ -47,7 +47,7 @@ Record order information, including buyer, seller, product, shipping address, tr
 ### Architecture
 ![Architecture](/LastProjecteCommerce/diagrams/Architecture.png)
 ### Use Case Description
-[Use Case Description](/LastProjecteCommerce/Use%20Case%20description.md)
+[Use Case Description](/LastProjecteCommerce/Use%20Case%20Description.md)
 
 ### Context diagram
 ![Context diagram](/LastProjecteCommerce/diagrams/Context%20diagram.jpeg)
