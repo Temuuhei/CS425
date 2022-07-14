@@ -1,12 +1,36 @@
-# Start with a base image - in this case JDK 8 Alpine
-FROM openjdk:8-jdk-alpine
-# Run as a non-root user to mitigate security risks
-# https://security.stackexchange.com/questions/106860/can-a-root-user-inside-a-docker-lxc-break-the-security-of-the-whole-system
-RUN addgroup -S spring && adduser -S spring -G spring
-USER spring:spring
-# Specify JAR location
-ARG JAR_FILE=target/*.jar
-# Copy the JAR
-COPY ${JAR_FILE} app.jar
-# Set ENTRYPOINT in exec form to run the container as an executable
-ENTRYPOINT ["java","-jar","/app.jar"]
+#### Stage 1: Build the application
+FROM openjdk:17 as build
+
+# Set the current working directory inside the image
+WORKDIR /app
+
+# Copy maven executable to the image
+COPY mvnw .
+COPY .mvn .mvn
+
+# Copy the pom.xml file
+COPY pom.xml .
+
+# Build all the dependencies in preparation to go offline. 
+# This is a separate step so the dependencies will be cached unless 
+# the pom.xml file has changed.
+RUN ./mvnw dependency:go-offline -B
+
+# Copy the project source
+COPY src src
+
+# Package the application
+RUN ./mvnw package -DskipTests
+RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
+
+#### Stage 2: A minimal docker image with command to run the app 
+FROM openjdk:17
+
+ARG DEPENDENCY=/app/target/dependency
+
+# Copy project dependencies from the build stage
+COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
+COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
+COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
+
+ENTRYPOINT ["java","-cp","app:app/lib/*","com.ttx.ecommerce.EcommerceApplication"]

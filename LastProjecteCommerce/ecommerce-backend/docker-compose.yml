@@ -1,0 +1,52 @@
+# Docker Compose file Reference (https://docs.docker.com/compose/compose-file/)
+
+version: '3.7'
+
+# Define services
+services:
+  # Database Service (Mysql)
+  db:
+    image: mysql:8
+    ports:
+      - "3306:3306"
+    restart: always
+    container_name: ecommerce-db
+    environment:
+      MYSQL_DATABASE: ecommerce-db
+      MYSQL_USER: ecommerce-db-sys
+      MYSQL_PASSWORD: test1234
+      MYSQL_ROOT_PASSWORD: root
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      timeout: 20s
+      retries: 10
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - backend
+  # App backend service
+  app-server:
+    # Configuration for building the docker image for the backend service
+    build:
+      context: ./ # Use an image built from the specified dockerfile in the directory.
+      dockerfile: Dockerfile
+    container_name: ecommerce-app
+    ports:
+      - "8080:8080" # Forward the exposed port 8080 on the container to port 8080 on the host machine
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      # Pass environment variables to the service
+      SPRING_DATASOURCE_URL: jdbc:mysql://ecommerce-db:3306/ecommerce-db?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+      SPRING_DATASOURCE_USERNAME: ecommerce-db-sys
+      SPRING_DATASOURCE_PASSWORD: test1234
+    networks:
+      # Networks to join (Services on the same network can communicate with each other using their name)
+      - backend
+# Volumes
+volumes:
+  db-data: # Networks to be created to facilitate communication between containers
+networks:
+  backend:
