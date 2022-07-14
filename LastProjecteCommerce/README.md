@@ -101,12 +101,17 @@ $ docker-compose down
 ```
 $ helm repo add bitnami https://charts.bitnami.com/bitnami
 $ helm install ecommercedb  --set auth.rootPassword=nuuts,auth.database=app_database bitnami/mysql 
-
+```
+### Create deployment
+### Backend
+```
 $ kubectl create deployment ecommerce-backend --image=xocbayar/ecommerce-backend --dry-run=client -o=yaml > ecommerce-backend.yaml 
 $ echo --- >> ecommerce-backend.yaml
 $ kubectl create service loadbalancer ecommerce-backend --tcp=8080:8080 --dry-run=client -o=yaml >> ecommerce-backend.yaml
 $ kubectl apply -f ecommerce-backend.yaml
-
+```
+### Frontend
+```
 $ kubectl create deployment ecommerce-frontend --image=xocbayar/ecommerce-frontend --dry-run=client -o=yaml > ecommerce-frontend.yaml 
 $ echo --- >> ecommerce-frontend.yaml
 $ kubectl create service loadbalancer ecommerce-frontend --tcp=8081:8080 --dry-run=client -o=yaml >> ecommerce-frontend.yaml
