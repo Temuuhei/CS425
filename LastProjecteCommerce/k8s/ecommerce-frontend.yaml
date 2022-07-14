@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ecommerce-frontend
+  name: ecommerce-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ecommerce-frontend
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ecommerce-frontend
+    spec:
+      containers:
+      - image: xocbayar/ecommerce-frontend
+        name: ecommerce-frontend
+        resources: {}
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ecommerce-frontend
+  name: ecommerce-frontend
+spec:
+  ports:
+  - name: 8081-8080
+    port: 8081
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: ecommerce-frontend
+  type: LoadBalancer
+status:
+  loadBalancer: {}

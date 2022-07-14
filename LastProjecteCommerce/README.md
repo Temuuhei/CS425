@@ -69,6 +69,61 @@ Record order information, including buyer, seller, product, shipping address, tr
 ### Sequence diagram
 ![Sequence diagram](/LastProjecteCommerce/diagrams/Sequence%20diagram.png)
 
+## Docker
+### Backend
+1. Build docker image
+```
+$ docker build --tag xocbayar/ecommerce-backend .
+```
+2. Push docker image to docker hub
+```
+$ docker push --all-tags xocbayar/ecommerce-backend
+```
+### FrontEnd
+1. Build docker image
+```
+$ docker build --tag xocbayar/ecommerce-frontend .
+```
+2. Push docker image to docker hub
+```
+$ docker push --all-tags xocbayar/ecommerce-frontend
+```
+
+### Docker-Compose
+```
+$ docker-compose up
+$ docker-compose down
+```
+
+## Kubernetes
+
+### Helm start MySQL
+```
+$ helm repo add bitnami https://charts.bitnami.com/bitnami
+$ helm install ecommercedb  --set auth.rootPassword=nuuts,auth.database=app_database bitnami/mysql 
+
+$ kubectl create deployment ecommerce-backend --image=xocbayar/ecommerce-backend --dry-run=client -o=yaml > ecommerce-backend.yaml 
+$ echo --- >> ecommerce-backend.yaml
+$ kubectl create service loadbalancer ecommerce-backend --tcp=8080:8080 --dry-run=client -o=yaml >> ecommerce-backend.yaml
+$ kubectl apply -f ecommerce-backend.yaml
+
+$ kubectl create deployment ecommerce-frontend --image=xocbayar/ecommerce-frontend --dry-run=client -o=yaml > ecommerce-frontend.yaml 
+$ echo --- >> ecommerce-frontend.yaml
+$ kubectl create service loadbalancer ecommerce-frontend --tcp=8081:8080 --dry-run=client -o=yaml >> ecommerce-frontend.yaml
+$ kubectl apply -f ecommerce-frontend.yaml
+```
+### Minikube
+```
+$ minikube start
+$ minikube dashboard
+$ minikube tunnel
+
+```
+### Application properties
+```
+spring.datasource.url=jdbc:mysql://ecommercedb-mysql.default.svc.cluster.local:3306/ecommercedb?user=root&password=nuuts&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+```
+
 
 ### Team members
 1. Khosbayar Sandag
