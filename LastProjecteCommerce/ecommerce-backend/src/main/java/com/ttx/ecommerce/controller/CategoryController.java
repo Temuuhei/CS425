@@ -16,7 +16,6 @@ import com.ttx.ecommerce.service.CategoryService;
 
 @RestController
 @RequestMapping("/category")
-
 public class CategoryController {
 
 	@Autowired

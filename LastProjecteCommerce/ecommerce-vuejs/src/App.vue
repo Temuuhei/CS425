@@ -1,17 +1,8 @@
 <template>
-  <Navbar
-    :cartCount="cartCount"
-    @resetCartCount="resetCartCount"
-    v-if="!['Signup', 'Signin'].includes($route.name)"
-  />
+  <Navbar :cartCount="cartCount" @resetCartCount="resetCartCount" v-if="!['Signup', 'Signin'].includes($route.name)" />
   <div style="min-height: 60vh">
-    <router-view
-      v-if="products && categories"
-      :baseURL="baseURL"
-      :products="products"
-      :categories="categories"
-      @fetchData="fetchData"
-    >
+    <router-view v-if="products && categories" :baseURL="baseURL" :products="products" :categories="categories"
+      @fetchData="fetchData">
     </router-view>
   </div>
   <Footer v-if="!['Signup', 'Signin'].includes($route.name)" />
@@ -23,8 +14,7 @@ import Footer from './components/Footer.vue';
 export default {
   data() {
     return {
-      baseURL: 'https://limitless-lake-55070.herokuapp.com/',
-      //baseURL: "http://localhost:8080/",
+      baseURL: "http://localhost:8080/api/",
       products: null,
       categories: null,
       key: 0,
