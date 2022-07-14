@@ -1,9 +1,9 @@
 <template>
   <footer>
-    <div class="container pt-5">
+    <div class="container">
       <div class="row">
         <div class="col-12">
-          <div class="text-center py-5">
+          <div class="text-center py-3">
             <span class="text-primary">© 2022 Khosbayar Sandag / Temuujin Tsogt / Tamir Bold<br />
               CS425-SWE-202207:::eCommerce project</span>
           </div>
