@@ -45,7 +45,7 @@ Record order information, including buyer, seller, product, shipping address, tr
 
 
 ### Architecture
-![Architecture](/diagrams/Architecture.png)
+![Architecture](/LastProjecteCommerce/diagrams/Architecture.png)
 ### Use Case Description
 [Use Case Description](https://github.com/xocoo/swe-requirement/blob/main/Use%20Case%20description.md)
 
